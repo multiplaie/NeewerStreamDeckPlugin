@@ -1,0 +1,44 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/actionIcon",
+      "Name": "Set Color",
+      "States": [
+        {
+          "Image": "images/actionDefaultImage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Set your Neewer light color",
+      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetColorAction"
+    }
+  ],
+	"Category": "Neewer",
+	"CategoryIcon": "images/category/categoryIcon",
+	"Disabled":  false,
+	"Author": "Multiplaie",
+	"CodePathWin": "NeewerStreamDeckPlugin.exe",
+	"CodePathMac":  "NeewerStreamDeckPlugin",
+  "PropertyInspectorPath": "property_inspector/property_inspector.html",
+  "Description": "Description of NeewerStreamDeckPlugin.",
+  "Name": "NeewerStreamDeckPlugin",
+  "Icon": "images/pluginIcon",
+  "URL": "https://www.elgato.com/gaming/stream-deck",
+  "Version": "1.0",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion":  "4.1"
+	},
+	"OS": [
+    {
+        "Platform": "mac",
+        "MinimumVersion" : "10.11"
+    },
+    {
+        "Platform": "windows",
+        "MinimumVersion" : "10"
+    }
+  ]
+}

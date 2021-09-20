@@ -2,7 +2,7 @@
   "Actions": [
     {
       "Icon": "images/actionIcon",
-      "Name": "NeewerStreamDeckPluginAction",
+      "Name": "Set Color",
       "States": [
         {
           "Image": "images/actionDefaultImage",
@@ -10,9 +10,9 @@
           "FontSize": "16"
         }
       ],
-      "SupportedInMultiActions": false,
-      "Tooltip": "Set your Neewer light",
-      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.DefaultPluginAction"
+      "SupportedInMultiActions": true,
+      "Tooltip": "Set your Neewer light color",
+      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetColorAction"
     }
   ],
 	"Category": "Neewer",

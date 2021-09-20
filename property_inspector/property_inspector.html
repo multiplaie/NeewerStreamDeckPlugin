@@ -7,18 +7,31 @@
 	<link rel="stylesheet" href="css/property-inspector.css">
 </head>
 <body>
+	<div class="sdpi-item" id="select_single">
+		<div class="sdpi-item-label">Lumiere</div>
+		<select class="sdpi-item-value select" id="mac" onchange="setSettings(event.target.value, 'Mac');">
+			<option value="xx:xx:xx:xx:xx:xx">--select--</option>
+			<option value="F7:C5:F3:57:68:38">Lumiere 1</option>
+			<option value="DB:A9:84:1F:5B:06">Lumiere 2</option>
+		</select>
+	</div>
 	<div class="sdpi-wrapper">
-		<!-- for more examples of the types of fields supported in property inspector visit:
-			Elgato Github PiSamples -> https://github.com/elgatosf/streamdeck-pisamples
-			and
-			Elgato SDK Documentation -> https://developer.elgato.com/documentation/stream-deck/sdk/property-inspector/
-	-->
-		
-		<div class="sdpi-item" id="counter_value">
-			<div class="sdpi-item-label">Counter Value</div>
-			<input id="txtCounterValue" class="sdpi-item-value" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Enter counter number" onchange="setSettings(event.target.value, 'Counter')" />
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Couleur</div>
+			<input type="number" min="0" max="360" class="sdpi-item-value" id="color" placeholder="[0;360]" onchange="setSettings(event.target.value, 'Color')">
 		</div>
-
+	</div>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Luminosité</div>
+			<input type="number" min="0" max="100" class="sdpi-item-value" id="brightness" placeholder="[0;100]" onchange="setSettings(event.target.value, 'Brightness')">
+		</div>
+	</div>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Saturation</div>
+			<input type="number" min="0" max="100" class="sdpi-item-value" id="saturation" placeholder="[0;100]" onchange="setSettings(event.target.value, 'Saturation')">
+		</div>
 	</div>
 	<script src="js/property-inspector.js"></script>
 </body>
