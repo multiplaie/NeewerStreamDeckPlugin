@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace NeewerStreamDeckPlugin
 {
-  [ActionUuid(Uuid="com.khundar.neewerstreamdeckplugin.setlights.SetColorAction")]
-  public class NeewerStreamDeckSetColorPluginAction : BaseStreamDeckActionWithSettingsModel<Models.NeewerLightColorSettingsModel>
+  [ActionUuid(Uuid="com.khundar.neewerstreamdeckplugin.setlights.SetTemperatureAction")]
+  public class NeewerStreamDeckSettemperaturePluginAction : BaseStreamDeckActionWithSettingsModel<Models.NeewerLightTemperatureSettingsModel>
   {
 	public override async Task OnKeyUp(StreamDeckEventPayload args)
 	{
 
-			var light = new Models.NeewerLightColorModeModel(SettingsModel.Mac, SettingsModel.Color, SettingsModel.Brightness, SettingsModel.Saturation); 
+			var light = new Models.NeewerLightTemperatureModeModel(SettingsModel.Mac, SettingsModel.Temperature, SettingsModel.Brightness); 
 			var ssh_connect_cmd = "ssh " + models.RaspberryPiModel.user + "@" + models.RaspberryPiModel.ip_addr;
 			var bash_cmd = "gatttool -t random -b "+ light.mac +" --char-write-req --handle="+ light.handle + " --value="+light.buffer;
 			var cmd = ssh_connect_cmd + " \""+ bash_cmd + "\"";

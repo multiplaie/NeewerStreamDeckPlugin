@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>NeewerStreamDeckPlugin Property Inspector</title>
+	<link rel="stylesheet" href="css/sdpi.css">
+	<link rel="stylesheet" href="css/property-inspector.css">
+</head>
+<body>
+	<div class="sdpi-item" id="select_mac">
+		<div class="sdpi-item-label">Lumiere</div>
+		<select class="sdpi-item-value select" id="mac" onchange="setSettings(event.target.value, 'Mac');">
+			<option value="xx:xx:xx:xx:xx:xx">--select--</option>
+			<option value="F7:C5:F3:57:68:38">Lumiere 1</option>
+			<option value="DB:A9:84:1F:5B:06">Lumiere 2</option>
+		</select>
+	</div>
+	<div class="sdpi-item" id="select_temperature">
+		<div class="sdpi-item-label">Temperature</div>
+		<select class="sdpi-item-value select" id="temperature" onchange="setSettings(event.target.value, 'Temperature');">
+			<option value="xxxx">--select--</option>
+			<option value="32">3200</option>
+			<option value="33">3300</option>
+			<option value="34">3400</option>
+			<option value="35">3500</option>
+			<option value="36">3600</option>
+			<option value="37">3700</option>
+			<option value="38">3800</option>
+			<option value="39">3900</option>
+			<option value="40">4000</option>
+			<option value="41">4100</option>
+			<option value="42">4200</option>
+			<option value="43">4300</option>
+			<option value="44">4400</option>
+			<option value="45">4500</option>
+			<option value="46">4600</option>
+			<option value="47">4700</option>
+			<option value="48">4800</option>
+			<option value="49">4900</option>
+			<option value="50">5000</option>
+			<option value="51">5100</option>
+			<option value="52">5200</option>
+			<option value="53">5300</option>
+			<option value="54">5400</option>
+			<option value="55">5500</option>
+			<option value="56">5600</option>
+		</select>
+	</div>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Luminosité</div>
+			<input type="number" min="0" max="100" class="sdpi-item-value" id="brightness" placeholder="[0;100]" onchange="setSettings(event.target.value, 'Brightness')">
+		</div>
+	</div>
+
+	<script src="js/property-inspector-set-temperature.js"></script>
+</body>
+</html>

@@ -3,7 +3,6 @@ namespace NeewerStreamDeckPlugin.Models
     public class NeewerLightColorModeModel
     {
         public string mac;
-        public const string mode = "color"; // color or Temperature
         public int brightness; //min: 0, max: 100
         public int color; //min: 0, max: 360
         public int saturation; //min: 0, max: 100

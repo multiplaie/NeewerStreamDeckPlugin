@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -16,6 +16,10 @@
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)'=='Debug'">
 		<Exec Command="powershell -ExecutionPolicy Unrestricted -file &quot;$(ProjectDir)RegisterPluginAndStartStreamDeck.ps1&quot;" />
 	</Target>
+	<ItemGroup>
+	  <None Remove="property_inspector\js\property-inspector-set-temperature.js" />
+	  <None Remove="property_inspector\property_inspector_set_temperature.html" />
+	</ItemGroup>
 
 	<!--Dependencies-->
 	<ItemGroup>
@@ -45,12 +49,6 @@
 
 	<!-- Images that must be deployed with the executable -->
 	<ItemGroup>
-		<Content Include="images/actionDefaultImage.png">
-				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="images/actionDefaultImage@2x.png">
-				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 		<Content Include="images/actionIcon.png">
 				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -82,10 +80,16 @@
 		<Content Include="property_inspector\css\sdpi.css">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="property_inspector\js\property-inspector.js">
+		<Content Include="property_inspector\js\property-inspector-set-temperature.js">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="property_inspector\property_inspector.html">
+		<Content Include="property_inspector\js\property-inspector-set-color.js">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="property_inspector\property_inspector_set_temperature.html">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="property_inspector\property_inspector_set_color.html">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 

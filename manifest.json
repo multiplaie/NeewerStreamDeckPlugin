@@ -12,7 +12,23 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Set your Neewer light color",
-      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetColorAction"
+      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetColorAction",
+      "PropertyInspectorPath": "property_inspector/property_inspector_set_color.html"
+    },
+    {
+      "Icon": "actionSetTemperatureIcon",
+      "Name": "Set Temperature",
+      "States": [
+        {
+          "Image": "actionSetTemperatureImage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Set your Neewer light Temperature",
+      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetTemperatureAction",
+      "PropertyInspectorPath": "property_inspector/property_inspector_set_temperature.html"
     }
   ],
 	"Category": "Neewer",
@@ -21,21 +37,16 @@
 	"Author": "Multiplaie",
 	"CodePathWin": "NeewerStreamDeckPlugin.exe",
 	"CodePathMac":  "NeewerStreamDeckPlugin",
-  "PropertyInspectorPath": "property_inspector/property_inspector.html",
   "Description": "Description of NeewerStreamDeckPlugin.",
   "Name": "NeewerStreamDeckPlugin",
   "Icon": "images/pluginIcon",
-  "URL": "https://www.elgato.com/gaming/stream-deck",
+  "URL": "",
   "Version": "1.0",
 	"SDKVersion": 2,
 	"Software": {
 		"MinimumVersion":  "4.1"
 	},
 	"OS": [
-    {
-        "Platform": "mac",
-        "MinimumVersion" : "10.11"
-    },
     {
         "Platform": "windows",
         "MinimumVersion" : "10"
