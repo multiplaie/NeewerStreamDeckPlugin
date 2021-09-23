@@ -49,10 +49,28 @@
 
 	<!-- Images that must be deployed with the executable -->
 	<ItemGroup>
-		<Content Include="images/actionIcon.png">
+		<Content Include="images/actionSetColorImage.png">
 				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="images/actionIcon@2x.png">
+		<Content Include="images/actionSetColorImage@2x.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetTemperatureImage.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetTemperatureImage@2x.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetColorIcon.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetColorIcon@2x.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetTemperatureIcon.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/actionSetTemperatureIcon@2x.png">
 				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="images/pluginIcon.png">

@@ -1,11 +1,11 @@
 {
   "Actions": [
     {
-      "Icon": "images/actionIcon",
+      "Icon": "images/actionSetColorIcon",
       "Name": "Set Color",
       "States": [
         {
-          "Image": "images/actionDefaultImage",
+          "Image": "images/actionSetColorImage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }
@@ -16,11 +16,11 @@
       "PropertyInspectorPath": "property_inspector/property_inspector_set_color.html"
     },
     {
-      "Icon": "actionSetTemperatureIcon",
+      "Icon": "images/actionTemperatureIcon",
       "Name": "Set Temperature",
       "States": [
         {
-          "Image": "actionSetTemperatureImage",
+          "Image": "images/actionSetTemperatureImage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }
