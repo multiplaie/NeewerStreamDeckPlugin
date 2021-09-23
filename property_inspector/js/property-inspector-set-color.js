@@ -9,16 +9,35 @@ var websocket = null,
 
 var hue = document.getElementById("hue");
 var h = document.getElementById("h");
+var saturation = document.getElementById("saturation");
+var s = document.getElementById("s");
 
 function updateHueSliderToText() {
 	h.value = hue.value;
 	setSettings(h.value, "Color");
+	updateSaturationBackground();
 }
 
 function updateHueTextToSlider() {
 	hue.value = h.value;
 	setSettings(hue.value, "Color");
+	updateSaturationBackground();
 }
+
+function updateSaturationSliderToText() {
+	s.value = saturation.value;
+	setSettings(s.value, "Saturation");
+}
+
+function updateSaturationTextToSlider() {
+	saturation.value = s.value;
+	setSettings(saturation.value, "Saturation");
+}
+
+function updateSaturationBackground() {
+	saturation.setAttribute("style", "background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, hsl(" + h.value + ",0%,50%), hsl(" + h.value +", 100%, 50%)) repeat scroll 0% 0%!important; ");
+}
+
 
 
 function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
@@ -41,9 +60,10 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 
 	  document.getElementById('h').value = settingsModel.Color;
 	  document.getElementById('brightness').value = settingsModel.Brightness;
-	  document.getElementById('saturation').value = settingsModel.Saturation;
+	  document.getElementById('s').value = settingsModel.Saturation;
 	  document.getElementById('mac').value = settingsModel.Mac;
-	  updateHueTextToSlider()
+	  updateHueTextToSlider();
+	  updateSaturationTextToSlider();
 
 	// register property inspector to Stream Deck
 	websocket.send(JSON.stringify(json));
@@ -60,9 +80,10 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 				if (jsonObj.payload.settings.settingsModel) {
 					document.getElementById('h').value = settingsModel.Color;
 					document.getElementById('brightness').value = settingsModel.Brightness;
-					document.getElementById('saturation').value = settingsModel.Saturation;
+					document.getElementById('s').value = settingsModel.Saturation;
 					document.getElementById('mac').value = settingsModel.Mac;
-					updateHueTextToSlider()
+					updateHueTextToSlider();
+					updateSaturationTextToSlider();
 				}
 				break;
 			default:
@@ -92,4 +113,6 @@ const setSettings = (value, param) => {
 
 hue.addEventListener("input", updateHueSliderToText);
 h.addEventListener("input", updateHueTextToSlider);
+saturation.addEventListener("input", updateSaturationSliderToText);
+s.addEventListener("input", updateSaturationTextToSlider);
 

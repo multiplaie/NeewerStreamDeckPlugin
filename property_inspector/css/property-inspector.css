@@ -1,10 +1,16 @@
-#hue {
-    background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, rgb(255, 0, 0), rgb(255, 85, 0), rgb(255, 170, 0), rgb(255, 255, 0), rgb(170, 255, 0), rgb(85, 255, 0), rgb(0, 255, 0), rgb(0, 255, 85), rgb(0, 255, 170), rgb(0, 255, 255), rgb(0, 170, 255), rgb(0, 85, 255), rgb(0, 0, 255), rgb(85, 0, 255), rgb(170, 0, 255), rgb(255, 0, 255), rgb(255, 0, 170), rgb(255, 0, 85), rgb(255, 0, 0)) repeat scroll 0% 0% !important;
+
+input[type="range"] {
     -webkit-appearance: none;
     height: 16px;
     margin-top: 0;
     padding: 0;
 }
+
+#hue {
+    background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, rgb(255, 0, 0), rgb(255, 85, 0), rgb(255, 170, 0), rgb(255, 255, 0), rgb(170, 255, 0), rgb(85, 255, 0), rgb(0, 255, 0), rgb(0, 255, 85), rgb(0, 255, 170), rgb(0, 255, 255), rgb(0, 170, 255), rgb(0, 85, 255), rgb(0, 0, 255), rgb(85, 0, 255), rgb(170, 0, 255), rgb(255, 0, 255), rgb(255, 0, 170), rgb(255, 0, 85), rgb(255, 0, 0)) repeat scroll 0% 0% !important;
+}
+
+
 
 #hsi .sdpi-item-label, #hsi input{
     width: 15%;

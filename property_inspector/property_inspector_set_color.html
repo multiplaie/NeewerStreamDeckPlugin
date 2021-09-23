@@ -23,9 +23,9 @@
 			<div class="sdpi-item-label">H</div>
 			<input type="number" class="sdpi-item-value" id="h" onchange="setSettings(event.target.value, 'Color')">
 			<div class="sdpi-item-label">S</div>
-			<input type="number" class="sdpi-item-value" id="s">
-			<div class="sdpi-item-label">I</div>
-			<input type="number" class="sdpi-item-value" id="i">
+			<input type="number" class="sdpi-item-value" id="s" onchange="setSettings(event.target.value, 'Saturation')">
+			<div class="sdpi-item-label">L</div>
+			<input type="number" class="sdpi-item-value" id="l">
 		</div>
 	</div>
 
@@ -33,10 +33,10 @@
 		<div class="sdpi-item-label">Couleur</div>
 		<input type="range" min="0" max="360" id="hue" class="sdpi-item-value">
 	</div>
-	<div class="sdpi-wrapper">
+	<div class="sdpi-wrapper"  id="saturation-slider">
 		<div class="sdpi-item">
 			<div class="sdpi-item-label">Saturation</div>
-			<input type="range" min="0" max="100" class="sdpi-item-value" id="saturation" onchange="setSettings(event.target.value, 'Saturation')">
+			<input type="range" min="0" max="100" class="sdpi-item-value" id="saturation" >
 		</div>
 	</div>
 	<div class="sdpi-wrapper">
