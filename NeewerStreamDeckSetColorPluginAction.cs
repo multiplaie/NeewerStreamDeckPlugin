@@ -11,7 +11,7 @@ namespace NeewerStreamDeckPlugin
 	public override async Task OnKeyUp(StreamDeckEventPayload args)
 	{
 
-			var light = new Models.NeewerLightColorModeModel(SettingsModel.Mac, SettingsModel.Color, SettingsModel.Brightness, SettingsModel.Saturation); 
+			var light = new Models.NeewerLightColorModeModel(SettingsModel.Mac, SettingsModel.Hue, SettingsModel.Lightness, SettingsModel.Saturation); 
 			var ssh_connect_cmd = "ssh " + models.RaspberryPiModel.user + "@" + models.RaspberryPiModel.ip_addr;
 			var bash_cmd = "gatttool -t random -b "+ light.mac +" --char-write-req --handle="+ light.handle + " --value="+light.buffer;
 			var cmd = ssh_connect_cmd + " \""+ bash_cmd + "\"";

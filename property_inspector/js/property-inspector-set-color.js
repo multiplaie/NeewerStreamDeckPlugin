@@ -11,19 +11,19 @@ var hue = document.getElementById("hue");
 var h = document.getElementById("h");
 var saturation = document.getElementById("saturation");
 var s = document.getElementById("s");
-var lightness = document.getElementById("brightness");
+var lightness = document.getElementById("lightness");
 var l = document.getElementById("l");
 
 function updateHueSliderToText() {
 	h.value = hue.value;
-	setSettings(h.value, "Color");
+	setSettings(h.value, "Hue");
 	updateSaturationBackground();
 	updateLightnessBackground();
 }
 
 function updateHueTextToSlider() {
 	hue.value = h.value;
-	setSettings(hue.value, "Color");
+	setSettings(hue.value, "Hue");
 	updateSaturationBackground();
 	updateLightnessBackground();
 }
@@ -42,12 +42,12 @@ function updateSaturationTextToSlider() {
 
 function updateLightnessSliderToText() {
 	l.value = lightness.value;
-	setSettings(l.value, "Brightness");
+	setSettings(l.value, "Lightness");
 }
 
 function updateLightnessTextToSlider() {
 	lightness.value = l.value;
-	setSettings(lightness.value, "Brightness");
+	setSettings(lightness.value, "Lightness");
 }
 
 
@@ -70,18 +70,15 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
   //initialize values
   if (actionInfo.payload.settings.settingsModel) {
 	  settingsModel = actionInfo.payload.settings.settingsModel;
-	  settingsModel.Brightness = actionInfo.payload.settings.settingsModel.Brightness;
-	  settingsModel.Saturation = actionInfo.payload.settings.settingsModel.Saturation;
-	  settingsModel.Mac = actionInfo.payload.settings.settingsModel.Mac;
   }
 
 
   websocket.onopen = function () {
 	  var json = { event: inRegisterEvent, uuid: inUUID };
 
-	  document.getElementById('h').value = settingsModel.Color;
+	  document.getElementById('h').value = settingsModel.Hue;
 	  document.getElementById('s').value = settingsModel.Saturation;
-	  document.getElementById('l').value = settingsModel.Brightness;
+	  document.getElementById('l').value = settingsModel.Lightness;
 	  document.getElementById('mac').value = settingsModel.Mac;
 	  updateHueTextToSlider();
 	  updateSaturationTextToSlider();
@@ -100,9 +97,9 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 			case "didReceiveSettings":
 				settingsModel = jsonObj.payload.settings.settingsModel;
 				if (jsonObj.payload.settings.settingsModel) {
-					document.getElementById('h').value = settingsModel.Color;
+					document.getElementById('h').value = settingsModel.Hue;
 					document.getElementById('s').value = settingsModel.Saturation;
-					document.getElementById('l').value = settingsModel.Brightness;
+					document.getElementById('l').value = settingsModel.Lightness;
 					document.getElementById('mac').value = settingsModel.Mac;
 					updateHueTextToSlider();
 					updateSaturationTextToSlider();
@@ -116,7 +113,6 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 }
 
 const setSettings = (value, param) => {
-	console.log(value, param);
   if (websocket) {
 	settingsModel[param] = value;
 	var json = {
