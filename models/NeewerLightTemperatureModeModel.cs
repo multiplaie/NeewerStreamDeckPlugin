@@ -3,17 +3,17 @@ namespace NeewerStreamDeckPlugin.Models
     public class NeewerLightTemperatureModeModel
     {
         public string mac;
-        public int brightness; //min: 0, max: 100
+        public int lightness; //min: 0, max: 100
         public int temperature; //min: 0, max: 100
-        private const int min_brightness = 0;
-        private const int max_brightness = 100;
+        private const int min_lightness = 0;
+        private const int max_lightness = 100;
         private const int min_temperature = 32;
         private const int max_temperature = 56;
         private const string start_buffer = "788702";
 
         public string handle { get; set; } = "0x000e";
 
-        public NeewerLightTemperatureModeModel(string mac, int temperature, int brightness) {
+        public NeewerLightTemperatureModeModel(string mac, int temperature, int lightness) {
 
             this.mac = mac;
 
@@ -26,20 +26,20 @@ namespace NeewerStreamDeckPlugin.Models
                 throw new System.Data.DataException("Temperature value must be between " + NeewerLightTemperatureModeModel.max_temperature + " and " + NeewerLightTemperatureModeModel.min_temperature);
             }
 
-            if (brightness <= NeewerLightTemperatureModeModel.max_brightness && brightness >= NeewerLightTemperatureModeModel.min_brightness)
+            if (lightness <= NeewerLightTemperatureModeModel.max_lightness && lightness >= NeewerLightTemperatureModeModel.min_lightness)
             {
-                this.brightness = brightness;
+                this.lightness = lightness;
             }
             else
             {
-                throw new System.Data.DataException("Brightness value must be between " + NeewerLightTemperatureModeModel.max_brightness + " and " + NeewerLightTemperatureModeModel.min_brightness);
+                throw new System.Data.DataException("Lightness value must be between " + NeewerLightTemperatureModeModel.max_lightness + " and " + NeewerLightTemperatureModeModel.min_lightness);
             }
         }
 
         public string buffer{
             get
             {
-                var buffer = NeewerLightTemperatureModeModel.start_buffer + this.brightness.ToString("X2")  + this.temperature.ToString("X2")+this.checksum;
+                var buffer = NeewerLightTemperatureModeModel.start_buffer + this.lightness.ToString("X2")  + this.temperature.ToString("X2")+this.checksum;
                 return buffer;
             }
         }
@@ -49,7 +49,7 @@ namespace NeewerStreamDeckPlugin.Models
             get
             {
                 var mod = 1;
-                var checksum = this.brightness + this.temperature + mod;
+                var checksum = this.lightness + this.temperature + mod;
                 var hex_checksum = checksum.ToString("X2");
                 return hex_checksum.Substring(hex_checksum.Length - 2);
             }

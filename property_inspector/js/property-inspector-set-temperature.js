@@ -4,7 +4,23 @@ var websocket = null,
   uuid = null,
   inInfo = null,
   actionInfo = {},
-  settingsModel = {};
+	settingsModel = {};
+
+var l = document.getElementById("l");
+var lightness = document.getElementById("lightness");
+
+function updateLightnessSliderToText() {
+	l.value = lightness.value;
+	setSettings(l.value, "Lightness");
+}
+
+function updateLightnessTextToSlider() {
+	lightness.value = l.value;
+	setSettings(lightness.value, "Lightness");
+}
+
+
+
 
 function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
 	uuid = inUUID;
@@ -20,9 +36,11 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 
   websocket.onopen = function () {
 	  var json = { event: inRegisterEvent, uuid: inUUID };
-	  document.getElementById('brightness').value = settingsModel.Brightness;
+	  document.getElementById('l').value = settingsModel.Lightness;
 	  document.getElementById('temperature').value = settingsModel.Temperature;
 	  document.getElementById('mac').value = settingsModel.Mac;
+
+	  updateLightnessTextToSlider();
 
 	// register property inspector to Stream Deck
 	websocket.send(JSON.stringify(json));
@@ -37,9 +55,10 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 			case "didReceiveSettings":
 				settingsModel = jsonObj.payload.settings.settingsModel;
 				if (jsonObj.payload.settings.settingsModel) {
-					document.getElementById('temperature').value = settingsModel.Brightness;
-					document.getElementById('brightness').value = settingsModel.Brightness;
+					document.getElementById('temperature').value = settingsModel.Temperature;
+					document.getElementById('l').value = settingsModel.Lightness;
 					document.getElementById('mac').value = settingsModel.Mac;
+					updateLightnessTextToSlider();
 				}
 				break;
 			default:
@@ -63,3 +82,5 @@ const setSettings = (value, param) => {
   }
 };
 
+lightness.addEventListener("input", updateLightnessSliderToText);
+l.addEventListener("input", updateLightnessTextToSlider);

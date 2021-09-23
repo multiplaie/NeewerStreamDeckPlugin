@@ -49,7 +49,8 @@
 	<div class="sdpi-wrapper">
 		<div class="sdpi-item">
 			<div class="sdpi-item-label">Luminosité</div>
-			<input type="number" min="0" max="100" class="sdpi-item-value" id="brightness" placeholder="[0;100]" onchange="setSettings(event.target.value, 'Brightness')">
+            <input type="number" min="0" max="100" class="sdpi-item-value" id="l"/>
+			<input type="range" min="0" max="100" class="sdpi-item-value" id="lightness" onchange="setSettings(event.target.value, 'Lightness')">
 		</div>
 	</div>
 
