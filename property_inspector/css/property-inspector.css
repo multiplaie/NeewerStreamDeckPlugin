@@ -5,3 +5,7 @@
     margin-top: 0;
     padding: 0;
 }
+
+#hsi .sdpi-item-label, #hsi input{
+    width: 15%;
+} 

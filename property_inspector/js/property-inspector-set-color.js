@@ -6,13 +6,18 @@ var websocket = null,
   actionInfo = {},
 	settingsModel = {};
 
+
 var hue = document.getElementById("hue");
+var h = document.getElementById("h");
 
-function updateHue() {
+function updateHueSliderToText() {
+	h.value = hue.value;
+	setSettings(h.value, "Color");
+}
 
-	let hue_slider = document.getElementById("hue-slider");
-	let label = hue_slider.getElementsByClassName("sdpi-item-label")[0];
-	label.innerHTML = "Couleur (" + hue.value + ")";
+function updateHueTextToSlider() {
+	hue.value = h.value;
+	setSettings(hue.value, "Color");
 }
 
 
@@ -34,11 +39,11 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
   websocket.onopen = function () {
 	  var json = { event: inRegisterEvent, uuid: inUUID };
 
-	  document.getElementById('hue').value = settingsModel.Color;
+	  document.getElementById('h').value = settingsModel.Color;
 	  document.getElementById('brightness').value = settingsModel.Brightness;
 	  document.getElementById('saturation').value = settingsModel.Saturation;
 	  document.getElementById('mac').value = settingsModel.Mac;
-	  updateHue()
+	  updateHueTextToSlider()
 
 	// register property inspector to Stream Deck
 	websocket.send(JSON.stringify(json));
@@ -53,11 +58,11 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 			case "didReceiveSettings":
 				settingsModel = jsonObj.payload.settings.settingsModel;
 				if (jsonObj.payload.settings.settingsModel) {
-					document.getElementById('hue').value = settingsModel.Color;
+					document.getElementById('h').value = settingsModel.Color;
 					document.getElementById('brightness').value = settingsModel.Brightness;
 					document.getElementById('saturation').value = settingsModel.Saturation;
 					document.getElementById('mac').value = settingsModel.Mac;
-					updateHue()
+					updateHueTextToSlider()
 				}
 				break;
 			default:
@@ -85,6 +90,6 @@ const setSettings = (value, param) => {
 
 
 
-hue.addEventListener("input", updateHue);
-
+hue.addEventListener("input", updateHueSliderToText);
+h.addEventListener("input", updateHueTextToSlider);
 

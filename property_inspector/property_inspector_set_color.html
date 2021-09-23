@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -15,9 +15,23 @@
 			<option value="DB:A9:84:1F:5B:06">Lumiere 2</option>
 		</select>
 	</div>
-	<div type="range" class="sdpi-item" id="hue-slider">
+
+    <hr />
+
+	<div class="sdpi-wrapper" id="hsi">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">H</div>
+			<input type="number" class="sdpi-item-value" id="h" onchange="setSettings(event.target.value, 'Color')">
+			<div class="sdpi-item-label">S</div>
+			<input type="number" class="sdpi-item-value" id="s">
+			<div class="sdpi-item-label">I</div>
+			<input type="number" class="sdpi-item-value" id="i">
+		</div>
+	</div>
+
+	<div class="sdpi-item" id="hue-slider">
 		<div class="sdpi-item-label">Couleur</div>
-		<input type="range" min="0" max="360" class="sdpi-item-value" id="hue" onchange="setSettings(event.target.value, 'Color')">
+		<input type="range" min="0" max="360" id="hue" class="sdpi-item-value">
 	</div>
 	<div class="sdpi-wrapper">
 		<div class="sdpi-item">
