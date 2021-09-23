@@ -25,7 +25,7 @@
 			<div class="sdpi-item-label">S</div>
 			<input type="number" class="sdpi-item-value" id="s" onchange="setSettings(event.target.value, 'Saturation')">
 			<div class="sdpi-item-label">L</div>
-			<input type="number" class="sdpi-item-value" id="l">
+			<input type="number" class="sdpi-item-value" id="l" onchange="setSettings(event.target.value, 'Brightness')">
 		</div>
 	</div>
 
@@ -42,7 +42,7 @@
 	<div class="sdpi-wrapper">
 		<div class="sdpi-item">
 			<div class="sdpi-item-label">Luminosité</div>
-			<input type="number" min="0" max="100" class="sdpi-item-value" id="brightness" placeholder="[0;100]" onchange="setSettings(event.target.value, 'Brightness')">
+			<input type="range" min="0" max="100" class="sdpi-item-value" id="brightness">
 		</div>
 	</div>
 

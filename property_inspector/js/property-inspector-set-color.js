@@ -11,31 +11,52 @@ var hue = document.getElementById("hue");
 var h = document.getElementById("h");
 var saturation = document.getElementById("saturation");
 var s = document.getElementById("s");
+var lightness = document.getElementById("brightness");
+var l = document.getElementById("l");
 
 function updateHueSliderToText() {
 	h.value = hue.value;
 	setSettings(h.value, "Color");
 	updateSaturationBackground();
+	updateLightnessBackground();
 }
 
 function updateHueTextToSlider() {
 	hue.value = h.value;
 	setSettings(hue.value, "Color");
 	updateSaturationBackground();
+	updateLightnessBackground();
 }
 
 function updateSaturationSliderToText() {
 	s.value = saturation.value;
 	setSettings(s.value, "Saturation");
+	updateLightnessBackground();
 }
 
 function updateSaturationTextToSlider() {
 	saturation.value = s.value;
 	setSettings(saturation.value, "Saturation");
+	updateLightnessBackground();
 }
+
+function updateLightnessSliderToText() {
+	l.value = lightness.value;
+	setSettings(l.value, "Brightness");
+}
+
+function updateLightnessTextToSlider() {
+	lightness.value = l.value;
+	setSettings(lightness.value, "Brightness");
+}
+
 
 function updateSaturationBackground() {
 	saturation.setAttribute("style", "background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, hsl(" + h.value + ",0%,50%), hsl(" + h.value +", 100%, 50%)) repeat scroll 0% 0%!important; ");
+}
+
+function updateLightnessBackground() {
+	lightness.setAttribute("style", "background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, hsl(" + h.value + "," + s.value + "%,0%), hsl(" + h.value + ", " + s.value +"%, 50%)) repeat scroll 0% 0%!important; ");
 }
 
 
@@ -59,11 +80,12 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 	  var json = { event: inRegisterEvent, uuid: inUUID };
 
 	  document.getElementById('h').value = settingsModel.Color;
-	  document.getElementById('brightness').value = settingsModel.Brightness;
 	  document.getElementById('s').value = settingsModel.Saturation;
+	  document.getElementById('l').value = settingsModel.Brightness;
 	  document.getElementById('mac').value = settingsModel.Mac;
 	  updateHueTextToSlider();
 	  updateSaturationTextToSlider();
+	  updateLightnessTextToSlider();
 
 	// register property inspector to Stream Deck
 	websocket.send(JSON.stringify(json));
@@ -79,11 +101,12 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 				settingsModel = jsonObj.payload.settings.settingsModel;
 				if (jsonObj.payload.settings.settingsModel) {
 					document.getElementById('h').value = settingsModel.Color;
-					document.getElementById('brightness').value = settingsModel.Brightness;
 					document.getElementById('s').value = settingsModel.Saturation;
+					document.getElementById('l').value = settingsModel.Brightness;
 					document.getElementById('mac').value = settingsModel.Mac;
 					updateHueTextToSlider();
 					updateSaturationTextToSlider();
+					updateLightnessTextToSlider();
 				}
 				break;
 			default:
@@ -113,6 +136,13 @@ const setSettings = (value, param) => {
 
 hue.addEventListener("input", updateHueSliderToText);
 h.addEventListener("input", updateHueTextToSlider);
+
 saturation.addEventListener("input", updateSaturationSliderToText);
 s.addEventListener("input", updateSaturationTextToSlider);
+
+lightness.addEventListener("input", updateLightnessSliderToText);
+l.addEventListener("input", updateLightnessTextToSlider);
+
+updateSaturationBackground();
+updateLightnessBackground();
 
