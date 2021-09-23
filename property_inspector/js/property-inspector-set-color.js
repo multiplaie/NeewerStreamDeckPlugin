@@ -24,7 +24,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
   websocket.onopen = function () {
 	  var json = { event: inRegisterEvent, uuid: inUUID };
 
-	  document.getElementById('color').value = settingsModel.Color;
+	  document.getElementById('hue').value = settingsModel.Color;
 	  document.getElementById('brightness').value = settingsModel.Brightness;
 	  document.getElementById('saturation').value = settingsModel.Saturation;
 	  document.getElementById('mac').value = settingsModel.Mac;
@@ -42,7 +42,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 			case "didReceiveSettings":
 				settingsModel = jsonObj.payload.settings.settingsModel;
 				if (jsonObj.payload.settings.settingsModel) {
-					document.getElementById('color').value = settingsModel.Color;
+					document.getElementById('hue').value = settingsModel.Color;
 					document.getElementById('brightness').value = settingsModel.Brightness;
 					document.getElementById('saturation').value = settingsModel.Saturation;
 					document.getElementById('mac').value = settingsModel.Mac;
