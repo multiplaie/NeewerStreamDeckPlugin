@@ -1,6 +1,6 @@
 namespace NeewerStreamDeckPlugin.Models
 {
-    public class NeewerLightColorModeModel
+    public class NeewerLightHSLModeModel
     {
         public string mac;
         public int lightness; //min: 0, max: 100
@@ -16,35 +16,35 @@ namespace NeewerStreamDeckPlugin.Models
 
         public string handle { get; set; } = "0x000e";
 
-        public NeewerLightColorModeModel(string mac, int color, int lightness, int saturation) {
+        public NeewerLightHSLModeModel(string mac, int color, int lightness, int saturation) {
 
             this.mac = mac;
 
-            if (color <= NeewerLightColorModeModel.max_hue && color >= NeewerLightColorModeModel.min_hue)
+            if (color <= NeewerLightHSLModeModel.max_hue && color >= NeewerLightHSLModeModel.min_hue)
             {
                 this.hue = color;
             }
             else
             {
-                throw new System.Data.DataException("Color value must be between " + NeewerLightColorModeModel.max_hue + " and " + NeewerLightColorModeModel.min_hue);
+                throw new System.Data.DataException("Color value must be between " + NeewerLightHSLModeModel.max_hue + " and " + NeewerLightHSLModeModel.min_hue);
             }
 
-            if (lightness <= NeewerLightColorModeModel.max_lightness && lightness >= NeewerLightColorModeModel.min_lightness)
+            if (lightness <= NeewerLightHSLModeModel.max_lightness && lightness >= NeewerLightHSLModeModel.min_lightness)
             {
                 this.lightness = lightness;
             }
             else
             {
-                throw new System.Data.DataException("Brightness value must be between " + NeewerLightColorModeModel.max_lightness + " and " + NeewerLightColorModeModel.min_lightness);
+                throw new System.Data.DataException("Brightness value must be between " + NeewerLightHSLModeModel.max_lightness + " and " + NeewerLightHSLModeModel.min_lightness);
             }
 
-            if (saturation <= NeewerLightColorModeModel.max_saturation && saturation >= NeewerLightColorModeModel.min_saturation)
+            if (saturation <= NeewerLightHSLModeModel.max_saturation && saturation >= NeewerLightHSLModeModel.min_saturation)
             {
                 this.saturation = saturation;
             }
             else
             {
-                throw new System.Data.DataException("Saturation value must be between " + NeewerLightColorModeModel.max_saturation + " and " + NeewerLightColorModeModel.min_saturation);
+                throw new System.Data.DataException("Saturation value must be between " + NeewerLightHSLModeModel.max_saturation + " and " + NeewerLightHSLModeModel.min_saturation);
             }
 
         }
@@ -55,7 +55,7 @@ namespace NeewerStreamDeckPlugin.Models
                 var hex_color = this.hue.ToString("X2");
                 hex_color = hex_color.Substring(hex_color.Length - 2);
                 var flag = (this.hue > 255) ? 1 : 0;
-                var buffer = NeewerLightColorModeModel.start_buffer+hex_color+flag.ToString("X2")+this.saturation.ToString("X2")+this.lightness.ToString("X2")+this.checksum;
+                var buffer = NeewerLightHSLModeModel.start_buffer+hex_color+flag.ToString("X2")+this.saturation.ToString("X2")+this.lightness.ToString("X2")+this.checksum;
                 return buffer;
             }
         }

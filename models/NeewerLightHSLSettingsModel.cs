@@ -1,6 +1,6 @@
 ﻿namespace NeewerStreamDeckPlugin.Models
 {
-  public class NeewerLightColorSettingsModel
+  public class NeewerLightHSLSettingsModel
   {
 	public string Mac { get; set; } = "xx:xx:xx:xx:xx:xx";
     public int Lightness { get; set; } = 0; //min: 0, max: 100
