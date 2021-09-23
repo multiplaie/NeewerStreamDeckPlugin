@@ -4,7 +4,17 @@ var websocket = null,
   uuid = null,
   inInfo = null,
   actionInfo = {},
-  settingsModel = {};
+	settingsModel = {};
+
+var hue = document.getElementById("hue");
+
+function updateHue() {
+
+	let hue_slider = document.getElementById("hue-slider");
+	let label = hue_slider.getElementsByClassName("sdpi-item-label")[0];
+	label.innerHTML = "Couleur (" + hue.value + ")";
+}
+
 
 function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
 	uuid = inUUID;
@@ -28,6 +38,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 	  document.getElementById('brightness').value = settingsModel.Brightness;
 	  document.getElementById('saturation').value = settingsModel.Saturation;
 	  document.getElementById('mac').value = settingsModel.Mac;
+	  updateHue()
 
 	// register property inspector to Stream Deck
 	websocket.send(JSON.stringify(json));
@@ -46,6 +57,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 					document.getElementById('brightness').value = settingsModel.Brightness;
 					document.getElementById('saturation').value = settingsModel.Saturation;
 					document.getElementById('mac').value = settingsModel.Mac;
+					updateHue()
 				}
 				break;
 			default:
@@ -68,4 +80,11 @@ const setSettings = (value, param) => {
 	websocket.send(JSON.stringify(json));
   }
 };
+
+
+
+
+
+hue.addEventListener("input", updateHue);
+
 

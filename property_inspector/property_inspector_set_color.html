@@ -17,7 +17,7 @@
 	</div>
 	<div type="range" class="sdpi-item" id="hue-slider">
 		<div class="sdpi-item-label">Couleur</div>
-		<input type="range" min="0" max="360" value=0 class="sdpi-item-value" id="hue" onchange="setSettings(event.target.value, 'Color')">
+		<input type="range" min="0" max="360" class="sdpi-item-value" id="hue" onchange="setSettings(event.target.value, 'Color')">
 	</div>
 	<div class="sdpi-wrapper">
 		<div class="sdpi-item">
@@ -32,20 +32,5 @@
 		</div>
 	</div>
 	<script src="js/property-inspector-set-color.js"></script>
-    <script>
-
-        var hue = document.getElementById("hue");
-
-		function updateHue() {
-           
-            let hue_slider = document.getElementById("hue-slider");
-			let label = hue_slider.getElementsByClassName("sdpi-item-label")[0];
-			label.innerHTML = "Couleur (" + hue.value + ")";
-		}
-
-		hue.addEventListener("input", updateHue);
-		
-
-	</script>
 </body>
 </html>
