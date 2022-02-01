@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>NeewerStreamDeckPlugin Property Inspector</title>
+	<link rel="stylesheet" href="css/sdpi.css">
+	<link rel="stylesheet" href="css/property-inspector.css">
+</head>
+<body>
+	<div class="sdpi-item" id="select_single">
+		<div class="sdpi-item-label">Lumiere</div>
+		<select class="sdpi-item-value select" id="mac" onchange="setSettings(event.target.value, 'Mac');">
+			<option value="xx:xx:xx:xx:xx:xx">--select--</option>
+			<option value="F7:C5:F3:57:68:38">Lumiere 1</option>
+			<option value="DB:A9:84:1F:5B:06">Lumiere 2</option>
+		</select>
+	</div>
+
+	<hr />
+
+	<div class="sdpi-wrapper" id="hsi">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">H</div>
+			<input type="number" class="sdpi-item-value" id="h" onchange="setSettings(event.target.value, 'Hue')">
+			<div class="sdpi-item-label">S</div>
+			<input type="number" class="sdpi-item-value" id="s" onchange="setSettings(event.target.value, 'Saturation')">
+			<div class="sdpi-item-label">L</div>
+			<input type="number" class="sdpi-item-value" id="l" onchange="setSettings(event.target.value, 'Lightness')">
+		</div>
+	</div>
+
+	<div class="sdpi-item" id="hue-slider">
+		<div class="sdpi-item-label">Teinte</div>
+		<input type="range" min="0" max="360" id="hue" class="sdpi-item-value">
+	</div>
+	<div class="sdpi-wrapper" id="saturation-slider">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Saturation</div>
+			<input type="range" min="0" max="100" class="sdpi-item-value" id="saturation">
+		</div>
+	</div>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Luminosité</div>
+			<input type="range" min="0" max="100" class="sdpi-item-value" id="lightness">
+		</div>
+	</div>
+
+</body>
+</html>
