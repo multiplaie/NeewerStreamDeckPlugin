@@ -29,6 +29,21 @@
       "Tooltip": "Set your Neewer light Temperature",
       "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetTemperatureAction",
       "PropertyInspectorPath": "property_inspector/property_inspector_set_temperature.html"
+    },
+    {
+      "Icon": "images/actionSetColorIcon",
+      "Name": "Set Both Lights",
+      "States": [
+        {
+          "Image": "images/actionSetColorImage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Set your both Neewer light color",
+      "UUID": "com.khundar.neewerstreamdeckplugin.setlights.SetLightsAction",
+      "PropertyInspectorPath": "property_inspector/property_inspector_set_both_lights.html"
     }
   ],
 	"Category": "Neewer",

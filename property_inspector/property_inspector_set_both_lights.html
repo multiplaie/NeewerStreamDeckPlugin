@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>NeewerStreamDeckPlugin Property Inspector</title>
+	<link rel="stylesheet" href="css/sdpi.css">
+	<link rel="stylesheet" href="css/property-inspector.css">
+	<style>
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="sdpi-item" id="select_single">
+		<div class="sdpi-item-label">Mode Lumiere 1</div>
+		<select class="sdpi-item-value select" id="l1-mode" onchange="changeMode('L1');setSettings(event.target.value, 'L1Mode')">
+			<option value="xxxx">--select--</option>
+			<option value="hsi">HSI</option>
+			<option value="temperature">Temperature</option>
+		</select>
+	</div>
+
+	<hr />
+	<div id="l1-hsi-config" class="hide">
+		<div class="sdpi-wrapper" id="l1-hsi">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">H</div>
+				<input type="number" class="sdpi-item-value" id="l1-h" onchange="setSettings(event.target.value, 'L1Hue')">
+				<div class="sdpi-item-label">S</div>
+				<input type="number" class="sdpi-item-value" id="l1-s" onchange="setSettings(event.target.value, 'L1Saturation')">
+				<div class="sdpi-item-label">L</div>
+				<input type="number" class="sdpi-item-value" id="l1-l" onchange="setSettings(event.target.value, 'L1Lightness')">
+			</div>
+		</div>
+
+		<div class="sdpi-item" id="l1-hue-slider">
+			<div class="sdpi-item-label">Teinte</div>
+			<input type="range" min="0" max="360" id="l1-hue" class="sdpi-item-value">
+		</div>
+		<div class="sdpi-wrapper" id="l1-saturation-slider">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Saturation</div>
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l1-saturation">
+			</div>
+		</div>
+		<div class="sdpi-wrapper">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Luminosité</div>
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l1-lightness">
+			</div>
+		</div>
+	</div>
+	<div id="l1-temperature-config" class="hide">
+		<div class="sdpi-item" id="l1-select_temperature">
+			<div class="sdpi-item-label">Temperature</div>
+			<select class="sdpi-item-value select" id="l1-temperature" onchange="setSettings(event.target.value, 'L1Temperature');">
+				<option value="xxxx">--select--</option>
+				<option value="32">3200</option>
+				<option value="33">3300</option>
+				<option value="34">3400</option>
+				<option value="35">3500</option>
+				<option value="36">3600</option>
+				<option value="37">3700</option>
+				<option value="38">3800</option>
+				<option value="39">3900</option>
+				<option value="40">4000</option>
+				<option value="41">4100</option>
+				<option value="42">4200</option>
+				<option value="43">4300</option>
+				<option value="44">4400</option>
+				<option value="45">4500</option>
+				<option value="46">4600</option>
+				<option value="47">4700</option>
+				<option value="48">4800</option>
+				<option value="49">4900</option>
+				<option value="50">5000</option>
+				<option value="51">5100</option>
+				<option value="52">5200</option>
+				<option value="53">5300</option>
+				<option value="54">5400</option>
+				<option value="55">5500</option>
+				<option value="56">5600</option>
+			</select>
+		</div>
+		<div class="sdpi-wrapper">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Luminosité</div>
+				<input type="number" min="0" max="100" class="sdpi-item-value" id="l1-l-temp" />
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l1-lightness-temp" onchange="setSettings(event.target.value, 'L1LightnessTemperature')">
+			</div>
+		</div>
+	</div>
+
+	<hr style=" border: 10px solid green;" />
+
+	<div class="sdpi-item" id="select_single">
+		<div class="sdpi-item-label">Mode Lumiere 2</div>
+		<select class="sdpi-item-value select" id="l2-mode" onchange="changeMode('L2');setSettings(event.target.value, 'L2Mode')">
+			<option value="xxxx">--select--</option>
+			<option value="hsi">HSI</option>
+			<option value="temperature">Temperature</option>
+		</select>
+	</div>
+	<hr />
+
+	<div id="l2-hsi-config" class="hide">
+		<div class="sdpi-wrapper" id="l2-hsi">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">H</div>
+				<input type="number" class="sdpi-item-value" id="l2-h" onchange="setSettings(event.target.value, 'L2Hue')">
+				<div class="sdpi-item-label">S</div>
+				<input type="number" class="sdpi-item-value" id="l2-s" onchange="setSettings(event.target.value, 'L2Saturation')">
+				<div class="sdpi-item-label">L</div>
+				<input type="number" class="sdpi-item-value" id="l2-l" onchange="setSettings(event.target.value, 'L2Lightness')">
+			</div>
+		</div>
+
+		<div class="sdpi-item" id="l2-hue-slider">
+			<div class="sdpi-item-label">Teinte</div>
+			<input type="range" min="0" max="360" id="l2-hue" class="sdpi-item-value">
+		</div>
+		<div class="sdpi-wrapper" id="l2-saturation-slider">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Saturation</div>
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l2-saturation">
+			</div>
+		</div>
+		<div class="sdpi-wrapper">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Luminosité</div>
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l2-lightness">
+			</div>
+		</div>
+	</div>
+	<div id="l2-temperature-config" class="hide">
+		<div class="sdpi-item" id="select_temperature">
+			<div class="sdpi-item-label">Temperature</div>
+			<select class="sdpi-item-value select" id="l2-temperature" onchange="setSettings(event.target.value, 'L2Temperature');">
+				<option value="xxxx">--select--</option>
+				<option value="32">3200</option>
+				<option value="33">3300</option>
+				<option value="34">3400</option>
+				<option value="35">3500</option>
+				<option value="36">3600</option>
+				<option value="37">3700</option>
+				<option value="38">3800</option>
+				<option value="39">3900</option>
+				<option value="40">4000</option>
+				<option value="41">4100</option>
+				<option value="42">4200</option>
+				<option value="43">4300</option>
+				<option value="44">4400</option>
+				<option value="45">4500</option>
+				<option value="46">4600</option>
+				<option value="47">4700</option>
+				<option value="48">4800</option>
+				<option value="49">4900</option>
+				<option value="50">5000</option>
+				<option value="51">5100</option>
+				<option value="52">5200</option>
+				<option value="53">5300</option>
+				<option value="54">5400</option>
+				<option value="55">5500</option>
+				<option value="56">5600</option>
+			</select>
+		</div>
+		<div class="sdpi-wrapper">
+			<div class="sdpi-item">
+				<div class="sdpi-item-label">Luminosité</div>
+				<input type="number" min="0" max="100" class="sdpi-item-value" id="l2-l-temp" />
+				<input type="range" min="0" max="100" class="sdpi-item-value" id="l2-lightness-temp" onchange="setSettings(event.target.value, 'L2LightnessTemperature')">
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		function changeMode(light) {
+			if (light == "L1") {
+				var L1Mode = document.getElementById("l1-mode").value;
+				document.getElementById("l1-hsi-config").classList.toggle("hide", L1Mode != "hsi");
+				document.getElementById("l1-temperature-config").classList.toggle("hide", L1Mode != "temperature");
+			} else if (light == "L2") {
+				var L2Mode = document.getElementById("l2-mode").value;
+
+				document.getElementById("l2-hsi-config").classList.toggle("hide", L2Mode != "hsi");
+				document.getElementById("l2-temperature-config").classList.toggle("hide", L2Mode != "temperature");
+			}
+		}
+	</script>
+	<script src="js/property-inspector-set-both-lights.js"></script>
+</body>
+</html>

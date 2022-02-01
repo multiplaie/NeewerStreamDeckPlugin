@@ -102,7 +102,10 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="property_inspector\js\property-inspector-set-color.js">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="property_inspector\js\property-inspector-set-both-lights.js">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="property_inspector\property_inspector_set_temperature.html">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -110,7 +113,9 @@
 		<Content Include="property_inspector\property_inspector_set_color.html">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-
+		<Content Include="property_inspector\property_inspector_set_both_lights.html">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<!-- Build Helper -->
@@ -136,5 +141,6 @@
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
+	<ProjectExtensions><VisualStudio><UserProperties manifest_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
